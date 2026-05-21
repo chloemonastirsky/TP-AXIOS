@@ -1,13 +1,4 @@
-// import { useState } from 'react'
-// import SearchBar from "./Componentes/SearchBar";
-// import './App.css'
 
-// function App() {
+const [movies, setMovies] = useState([]);
 
-//     <SearchBar/>
-//   return (
-    
-//   )
-// }
-
-// export default App
+<SearchBar setMovies={setMovies} />

@@ -1,18 +1,18 @@
-import { useEffect } from 'react';
-import axios from "axios";
+ import axios from "axios";
 import api from '/src/api.js'
 import { useState, useEffect } from 'react';
 
-const movie = () =>{
-    const[movie, setMovie]= useState()
+const SearchBar = ({ setMovies }) => {
+
+    const [search, setSearch] = useState("");
     const[loading, setLoading]=useState(true);
 
     const buscarPelicula = (e) => {
         e.preventDefault();
 
-        api.get(`/t?query=${search}`)
+        api.get(`/?s=${search}`)
             .then((response) => {
-                setMovie(response.data);
+                setMovies(response.data.search);
             })
             .catch((error) => {
                 console.error("No se encontro la pelicula");
@@ -22,14 +22,22 @@ const movie = () =>{
     return(
         <div>
             <form onSubmit={buscarPelicula}>
-               <button type="submit">
+
+                <input
+                    type="text"
+                    placeholder="Buscar pelicula"
+                    value={search}
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+                <button type="submit">
                     Buscar
                 </button>
-            </form>
-            <h2>Pelicula {movie.name} </h2>
-            <img src>{movie.img}</img>
+
+            </form>        
         </div>
     
 )
 };
+
+export default SearchBar;
 
