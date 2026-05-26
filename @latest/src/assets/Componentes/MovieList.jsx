@@ -1,5 +1,5 @@
 import axios from "axios";
-import api from '/src/api.js'
+import api from '../../../api.js'
 import { useState, useEffect } from 'react';
 import SearchBar from "./SearchBar";
 import MovieCard from "./MovieCard"
@@ -13,7 +13,7 @@ const MovieList = ({movies}) => {
         <div>
 
             {
-                movies.map(m => <MovieCard movie={m} ></MovieCard>)
+                movies.map(m => <MovieCard key={m.imdbID} imdbID={m.imdbID} Title={m.Title} Poster={m.Poster} />)
             }
 
         </div>

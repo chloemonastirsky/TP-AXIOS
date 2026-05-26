@@ -1,41 +1,40 @@
 import axios from "axios";
-import api from '/src/api.js'
+import api from '../../../api.js'
 import { useState, useEffect } from 'react';
 
 
 const MovieDetail = ({ imdbID}) => {
     
     const [movieDetail, setMovieDetail] = useState("");
-    const detallePelicula = (e) => {
-            e.preventDefault();
+        useEffect(() =>{ 
     
             api.get(`/?i=${imdbID}`)
                 .then((response) => {
-                setMovieDetail(response.data.search);
+                setMovieDetail(response.data);
                 })
                 .catch((error) => {
                     console.error("No se encontro la pelicula");
                 });
-        };
+      }, [imdbID])
     
     return (
 
         <div>
             {
                 <li>
-                    <h1>{movie.Title}</h1>
+                    <h1>{movieDetail.Title}</h1>
 
-                    <img src={movie.Poster} />
+                    <img src={movieDetail.Poster} />
 
-                    <p>{movie.Plot}</p>
+                    <p>{movieDetail.Plot}</p>
 
-                    <p>Director: {movie.Director}</p>
+                    <p>Director: {movieDetail.Director}</p>
 
-                    <p>Actors: {movie.Actors}</p>
+                    <p>Actors: {movieDetail.Actors}</p>
 
-                    <p>Genre: {movie.Genre}</p>
+                    <p>Genre: {movieDetail.Genre}</p>
 
-                    <p>IMDb: {movie.imdbRating}</p>
+                    <p>IMDb: {movieDetail.imdbRating}</p>
                 </li>
             }
 

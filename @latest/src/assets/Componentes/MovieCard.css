@@ -1,0 +1,19 @@
+.movie-card {
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    cursor: pointer;
+    width: 160px;
+}
+
+.movie-card img {
+    width: 100%;
+    aspect-ratio: 2/3;
+    object-fit: cover;
+}
+
+.movie-card h2 {
+    font-size: 14px;
+    padding: 8px;
+    color: white;
+}

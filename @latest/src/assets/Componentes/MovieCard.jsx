@@ -1,27 +1,8 @@
-
-import axios from "axios";
-import api from '/src/api.js'
-import { useState, useEffect } from 'react';
-
-const MovieCard = ({ imdbID,Title, Poster }) => {
-
+const MovieCard = ({ imdbID, Title, Poster, onSelect }) => {
     return (
-
-        <div>
-
-            {
-               
-                    <div key={movie.imdbID}>
-
-                        <h2>{movie.Title}</h2>
-
-                        <img src={movie.Poster} />
-
-                    </div>
-
-                
-            }
-
+        <div className="movie-card" onClick={() => onSelect(imdbID)}>
+            <img src={Poster} alt={Title} />
+            <h2>{Title}</h2>
         </div>
     );
 };
