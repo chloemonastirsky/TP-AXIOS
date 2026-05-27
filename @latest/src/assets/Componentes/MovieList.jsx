@@ -5,15 +5,28 @@ import SearchBar from "./SearchBar";
 import MovieCard from "./MovieCard"
 
 
-const MovieList = ({movies}) => {
+const MovieList = ({ movies,onSelect }) => {
 
+    const onSelect = (imdbID) => {
+        console.log(imdbID);
+    };
 
     return (
 
         <div>
 
             {
-                movies.map(m => <MovieCard key={m.imdbID} imdbID={m.imdbID} Title={m.Title} Poster={m.Poster} />)
+                movies.map(m => (
+
+                    <MovieCard
+                        key={m.imdbID}
+                        imdbID={m.imdbID}
+                        Title={m.Title}
+                        Poster={m.Poster}
+                        onSelect={onSelect}
+                    />
+
+                ))
             }
 
         </div>
