@@ -1,19 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400&display=swap');
+
 .movie-card {
-    background: #1a1a1a;
-    border-radius: 8px;
-    overflow: hidden;
-    cursor: pointer;
-    width: 160px;
+  background: #17171f;
+  border: 1px solid rgba(255,255,255,0.07);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  animation: cardIn 0.4s cubic-bezier(0.4,0,0.2,1) both;
+  transition: transform 0.3s cubic-bezier(0.4,0,0.2,1),
+              border-color 0.3s,
+              box-shadow 0.35s cubic-bezier(0.4,0,0.2,1);
+}
+
+.movie-card:nth-child(1)  { animation-delay: 0.04s; }
+.movie-card:nth-child(2)  { animation-delay: 0.08s; }
+.movie-card:nth-child(3)  { animation-delay: 0.12s; }
+.movie-card:nth-child(4)  { animation-delay: 0.16s; }
+.movie-card:nth-child(5)  { animation-delay: 0.20s; }
+.movie-card:nth-child(6)  { animation-delay: 0.24s; }
+.movie-card:nth-child(7)  { animation-delay: 0.28s; }
+.movie-card:nth-child(8)  { animation-delay: 0.32s; }
+.movie-card:nth-child(9)  { animation-delay: 0.36s; }
+.movie-card:nth-child(10) { animation-delay: 0.40s; }
+
+@keyframes cardIn {
+  from { opacity: 0; transform: translateY(22px) scale(0.97); }
+  to   { opacity: 1; transform: translateY(0)    scale(1); }
+}
+
+.movie-card:hover {
+  transform: translateY(-7px) scale(1.025);
+  border-color: #a8904a;
+  box-shadow: 0 24px 52px rgba(0,0,0,0.6),
+              0 0 0 1px rgba(232,201,122,0.1);
 }
 
 .movie-card img {
-    width: 100%;
-    aspect-ratio: 2/3;
-    object-fit: cover;
+  width: 100%;
+  aspect-ratio: 2/3;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.3s, transform 0.6s cubic-bezier(0.4,0,0.2,1);
+}
+
+.movie-card:hover img {
+  filter: brightness(1.07);
+  transform: scale(1.04);
 }
 
 .movie-card h2 {
-    font-size: 14px;
-    padding: 8px;
-    color: white;
+  padding: 0.7rem 0.9rem 0.85rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.83rem;
+  font-weight: 400;
+  color: #8a8699;
+  line-height: 1.4;
+  transition: color 0.2s;
 }
+
+.movie-card:hover h2 { color: #f0ece4; }

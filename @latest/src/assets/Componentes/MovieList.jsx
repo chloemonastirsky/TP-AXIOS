@@ -3,7 +3,7 @@ import api from '../../../api.js'
 import { useState, useEffect } from 'react';
 import SearchBar from "./SearchBar";
 import MovieCard from "./MovieCard"
-
+import './MovieList.css'
 
 const MovieList = ({ movies, onSelect }) => {
 

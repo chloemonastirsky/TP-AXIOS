@@ -1,5 +1,6 @@
 import api from "../../../api.js";
 import { useState, useEffect } from "react";
+import './MovieDetail.css'
 
 const MovieDetail = ({ imdbID, onClose }) => {
 
@@ -32,18 +33,20 @@ const MovieDetail = ({ imdbID, onClose }) => {
 
     return (
 
-        <div>
+      
 
+        <div className="modal-overlay">
+  <div className="modal">
+    <button className="modal-close" onClick={onClose}>✕</button>
+    <div className="modal-poster">
+     <img src={movieDetail.Poster} alt={movieDetail.Title}/>
+    </div>
+    <div className="modal-content">
             <button onClick={onClose}>
                 Cerrar
             </button>
 
             <h1>{movieDetail.Title}</h1>
-
-            <img
-                src={movieDetail.Poster}
-                alt={movieDetail.Title}
-            />
 
             <p>{movieDetail.Plot}</p>
 
@@ -53,9 +56,10 @@ const MovieDetail = ({ imdbID, onClose }) => {
 
             <p>Genre: {movieDetail.Genre}</p>
 
-            <p>IMDb: {movieDetail.imdbRating}</p>
-
-        </div>
+            <p>IMDb: {movieDetail.imdbRating}</p>      
+    </div>
+  </div>
+</div>
     );
 };
 

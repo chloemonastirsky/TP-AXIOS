@@ -1,3 +1,5 @@
+import './MovieCard.css'
+
 const MovieCard = ({ imdbID, Title, Poster, onSelect }) => {
     return (
 

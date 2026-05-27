@@ -1,5 +1,6 @@
 import api from '../../../api.js'
 import { useState } from 'react';
+import './SearchBar.css'
 
 const SearchBar = ({ setMovies, setLoading, setError }) => {
 
