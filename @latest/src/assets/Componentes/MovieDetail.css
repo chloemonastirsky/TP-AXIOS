@@ -1,0 +1,215 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(6px);
+  z-index: 200;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  animation: overlay-in 0.2s ease;
+}
+
+@keyframes overlay-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.modal {
+  background: var(--bg-modal);
+  border: 1px solid var(--border-bright);
+  border-radius: 12px;
+  max-width: 820px;
+  width: 100%;
+  max-height: 90svh;
+  overflow-y: auto;
+  position: relative;
+  box-shadow: var(--shadow-modal);
+  animation: modal-in 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: scale(0.93) translateY(12px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  color: var(--text-dim);
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  transition: color 0.15s, border-color 0.15s;
+}
+
+.modal-close:hover {
+  color: var(--text-h);
+  border-color: var(--gold-border);
+}
+
+.modal-loader {
+  padding: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+.modal-error {
+  padding: 60px 40px;
+  text-align: center;
+  color: var(--text-dim);
+}
+
+.modal-close-btn {
+  margin-top: 20px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  color: var(--text);
+  padding: 8px 20px;
+  border-radius: 6px;
+  font-family: var(--sans);
+  transition: border-color 0.15s;
+}
+.modal-close-btn:hover { border-color: var(--gold-border); }
+
+/* ── Layout ── */
+.modal-content {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+}
+
+.modal-poster-col {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.modal-poster {
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.modal-rating {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin-top: 12px;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  border-radius: 6px;
+  padding: 8px 12px;
+}
+
+.modal-rating-star { color: var(--gold); font-size: 18px; }
+.modal-rating-value { font-size: 22px; font-weight: 700; color: var(--text-h); font-family: var(--display); }
+.modal-rating-label { font-size: 12px; color: var(--text-dim); }
+
+.modal-info-col { flex: 1; min-width: 0; }
+
+.modal-meta-top {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.modal-year {
+  font-size: 14px;
+  color: var(--text-dim);
+}
+
+.modal-badge {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold);
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.modal-runtime {
+  font-size: 13px;
+  color: var(--text-dim);
+}
+
+.modal-title {
+  font-size: clamp(28px, 5vw, 44px);
+  line-height: 1;
+  margin-bottom: 14px;
+  color: var(--text-h);
+}
+
+.modal-genres {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.modal-genre-tag {
+  font-size: 12px;
+  color: var(--text-dim);
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+
+.modal-plot {
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--text);
+  margin-bottom: 24px;
+}
+
+.modal-details {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+}
+
+.modal-detail-row {
+  display: grid;
+  grid-template-columns: 90px 1fr;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.modal-detail-label {
+  color: var(--text-dim);
+  font-weight: 500;
+  flex-shrink: 0;
+}
+
+.modal-detail-value {
+  color: var(--text);
+  line-height: 1.45;
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .modal-content {
+    flex-direction: column;
+    padding: 20px;
+  }
+  .modal-poster-col {
+    width: 140px;
+    margin: 0 auto;
+  }
+}

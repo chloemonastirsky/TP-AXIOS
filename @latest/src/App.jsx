@@ -31,7 +31,10 @@ function App() {
         {!loading && error && <ErrorMessage message={error} />}
 
         {!loading && !error && movies.length > 0 && (
-          <MovieList movies={movies} onSelect={setSelectedId} />
+          <MovieList
+                movies={movies}
+                onSelect={setSelectedId}
+            />
         )}
       </main>
 

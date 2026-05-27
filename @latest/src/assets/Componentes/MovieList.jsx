@@ -5,11 +5,7 @@ import SearchBar from "./SearchBar";
 import MovieCard from "./MovieCard"
 
 
-const MovieList = ({ movies,onSelect }) => {
-
-    const onSelect = (imdbID) => {
-        console.log(imdbID);
-    };
+const MovieList = ({ movies, onSelect }) => {
 
     return (
 
